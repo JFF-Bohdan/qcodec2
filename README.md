@@ -13,16 +13,20 @@ http://bohdan-danishevsky.blogspot.com/2016/12/building-codec2-for-windows-using
 # Usage for recording voice (encoding)
 
 First of all you need open output file:
+```
     outputFile = new QFile(fileName);
     outputFile->open(QIODevice::WriteOnly | QIODevice::Truncate);
-	
+```	
 Then you need create encoder and attach output file to the encoder:
+```
     encoder = new QCodec2Encoder(outputFile, this);
     encoder->setCodecMode(ui->cbBitrate->currentData().toInt());
     encoder->setNaturalEncoding(true);
     encoder->start(QIODevice::Truncate);
+```
 
 Finally, you need initialize QAudioInput:
+```
     QAudioFormat    format = QCodec2BaseClass::codec2AudioFormat();
     audioInput = new QAudioInput(deviceInfo, format, this);
 
@@ -37,22 +41,28 @@ Finally, you need initialize QAudioInput:
     audioInput->setBufferSize(format.sampleRate()*format.channelCount()*(format.sampleSize()/8));
 
     audioInput->start(m_Codec2Writer);
+```
 
 # Usage for playing voice
 First of all you need open output file:
 
+```
     audioInput = new QFile(m_WorkingFileName);
     audioInput->open(QIODevice::ReadOnly);
+```
 	
 Next you need create decoder:
 
+```
 	decoder = new QCodec2Decoder(audioInput, this);
     decoder->setCodecMode(ui->cbBitrate->currentData().toInt());
     decoder->setNaturalEncoding(ui->cbEncodingType->currentData().toBool());
     decoder->start();
+```
 	
 Finally, you need create audio QAudioOutput for plyaing decoded data:
 
+```
     QAudioFormat    format = QCodec2BaseClass::codec2AudioFormat();
 
     audioOutput = new QAudioOutput(deviceInfo, format, this);
@@ -68,6 +78,7 @@ Finally, you need create audio QAudioOutput for plyaing decoded data:
     audioOutput->setBufferSize(format.sampleRate()*format.channelCount()*(format.sampleSize()/8));
 
     audioOutput->start(decoder);
+```
 	
 # Documentation
 
