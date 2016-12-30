@@ -1,5 +1,6 @@
 # qcodec2
-qcodec2 is Qt wrappers for codec2 speech codec
+qcodec2 is Qt wrappers for codec2 speech codec. You can find more information about codec2 here:
+http://www.rowetel.com/?page_id=452
 
 It contains two main classes QCodec2Encoder and QCodec2Decoder which wraps codec2 calls with QAudioOutput and QAudioInput standard classes and Qt audio structure.
 
