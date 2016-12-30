@@ -40,16 +40,19 @@ Finally, you need initialize QAudioInput:
 
 # Usage for playing voice
 First of all you need open output file:
+
     audioInput = new QFile(m_WorkingFileName);
     audioInput->open(QIODevice::ReadOnly);
 	
 Next you need create decoder:
+
 	decoder = new QCodec2Decoder(audioInput, this);
     decoder->setCodecMode(ui->cbBitrate->currentData().toInt());
     decoder->setNaturalEncoding(ui->cbEncodingType->currentData().toBool());
     decoder->start();
 	
 Finally, you need create audio QAudioOutput for plyaing decoded data:
+
     QAudioFormat    format = QCodec2BaseClass::codec2AudioFormat();
 
     audioOutput = new QAudioOutput(deviceInfo, format, this);
