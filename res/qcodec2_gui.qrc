@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="MainIcon">1483071548_microphone-70px.png</file>
+		<file alias="Refresh">1483071979_refresh.png</file>
+		<file alias="Close">1483071984_cross.png</file>
+		<file alias="SpecifyFile">1483071988_folder.png</file>
+    </qresource>
+</RCC>
