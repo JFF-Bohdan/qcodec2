@@ -1,2 +1,2 @@
 # qcodec2
-Qt wrappers Fort codec2  speech codec
+Qt wrappers for codec2  speech codec
