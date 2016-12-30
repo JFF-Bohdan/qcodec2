@@ -44,6 +44,17 @@ Finally, you need initialize QAudioInput:
     audioInput->start(m_Codec2Writer);
 ```
 
+At the end do not forget flush buffers and close file.
+
+```
+    audioInput->stop();
+	
+    encoder->stop();
+
+    outputFile->flush();
+    outputFile->close();
+```
+
 # Usage for playing voice
 First of all you need open output file:
 
@@ -80,10 +91,22 @@ Finally, you need create audio QAudioOutput for plyaing decoded data:
 
     audioOutput->start(decoder);
 ```
+
+At the end do not forget flush buffers and close file.
+
+```
+    audioOutput->stop();
+	
+    decoder->stop();
+
+    audioInput->flush();
+    audioInput->close();
+```
+
 	
 # Documentation
 
 You can build documentation using Doxygen which can be found at:
-http://www.stack.nl/~dimitri/doxygen/download.html
+http://www.stack.nl/~dimitri/doxygen
 
 using Doxyfile in main folder
